@@ -1,6 +1,6 @@
 const RED_CLASS = 'red'
 const YELLOW_CLASS = 'yellow'
-cellElements = document.querySelectorAll('[data-cell]')
+const cellElements = document.querySelectorAll('[data-cell]')
 const board = document.getElementById('board')
 const winMessage = document.getElementById('winningMessage')
 const winMessageText = document.querySelector('[data-winning-message-text]')
@@ -27,7 +27,7 @@ function startGame(){
 function handleClick(e) {
     const column = Number(e.target.id) % 7
     const curClass = redTurn ? RED_CLASS : YELLOW_CLASS
-    if (!cellElements[column].classList.contains(RED_CLASS) & !cellElements[column].classList.contains(YELLOW_CLASS)){
+    if (!cellElements[column].classList.contains(RED_CLASS) && !cellElements[column].classList.contains(YELLOW_CLASS)){
         placeMark(column, curClass)
         if (checkWin(curClass)){
             endGame(false)
@@ -58,7 +58,7 @@ function swapTurns(){
 
 function handleHover(e){
     const col = Number(e.target.id) % 7
-    if (!cellElements[col].classList.contains(RED_CLASS) & !cellElements[col].classList.contains(YELLOW_CLASS)){
+    if (!cellElements[col].classList.contains(RED_CLASS) && !cellElements[col].classList.contains(YELLOW_CLASS)){
         let row = 5
         while (cellElements[(row * 7) + col].classList.contains(RED_CLASS) 
             || cellElements[(row * 7) + col].classList.contains(YELLOW_CLASS)){
@@ -66,11 +66,11 @@ function handleHover(e){
         } 
         return row
     }
-}
+}  
 
 function handleHoverOn(e){
     const row = handleHover(e)
-    if (row) {
+    if (row !== null) {
         const col = Number(e.target.id) % 7
         cellElements[(row * 7) + col].classList.add('hover')
     } else {

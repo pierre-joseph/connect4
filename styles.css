@@ -1,0 +1,98 @@
+:root {
+    --cell-size: 80px;
+    --mark-size: calc(var(--cell-size) * 0.9);
+}
+
+body {
+    background-color: #FFFDD0;
+}
+
+.game-title {
+    color: #2C3E50;
+    text-align: center;
+    font-size: 5rem;
+    margin: 2rem;
+}
+
+.board {
+    width: 50rem;
+    margin: auto;
+    background-color: #4169E1;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(7, auto);
+}
+
+
+.cell {
+    margin: 0.2rem;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border: 1px solid black;
+    display: flex;
+    justify-content : center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.cell.gray {
+    background-color: gray; 
+    content: '';
+    border-radius: 50%;
+}
+
+.cell.red {
+    background-color: #FF6B6B; 
+    content: '';
+    border-radius: 50%;
+}
+
+.cell.yellow {
+    background-color: #FFD93D; 
+    content: '';
+    border-radius: 50%;
+}
+
+.board.red .cell.hover {
+    background-color: #F28B82;
+}
+
+.board.yellow .cell.hover {
+    background-color: #FFF4B1;
+}
+
+.winning-message {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 5rem;
+    flex-direction: column;
+}
+
+.winning-message button {
+    font-size: 3rem;
+    background-color: white;
+    border: 1px solid black;
+    padding: .25rem .5rem;
+    cursor: pointer;
+}
+
+.winning-message button:hover {
+    background-color: black;
+    color: white;
+    border-color: 1px solid white;
+}
+
+.winning-message.show {
+    display: flex;
+}

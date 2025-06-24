@@ -128,33 +128,41 @@ function checkWin(curClass){
     }
 
 
-    for (let row = 0; row < 3; row++){
-        for (let col = 0; col < 4; col++){
-            count = 0
-            for (let idx = 0; idx < 4; idx++){
-                if (cellElements[((row + idx) * 7) + (col + idx)].classList.contains(curClass) ) {
-                    count = count + 1
-                    if (count == 4) {
-                        return true
-                    }
-                }
-            }
+    for (let row = 0; row <= 2; row++) {
+        for (let col = 0; col <= 3; col++) {
+          const index1 = (row * 7) + col;
+          const index2 = ((row + 1) * 7) + (col + 1);
+          const index3 = ((row + 2) * 7) + (col + 2);
+          const index4 = ((row + 3) * 7) + (col + 3);
+      
+          if (
+            cellElements[index1].classList.contains(curClass) &&
+            cellElements[index2].classList.contains(curClass) &&
+            cellElements[index3].classList.contains(curClass) &&
+            cellElements[index4].classList.contains(curClass)
+          ) {
+            return true;
+          }
         }
-    }
+      }
 
-    for (let row = 0; row < 3; row++){
-        for (let col = 7; col > 3; col--){
-            count = 0
-            for (let idx = 0; idx < 4; idx++){
-                if (cellElements[((row + idx) * 7) + (col - idx)].classList.contains(curClass) ) {
-                    count = count + 1
-                    if (count == 4) {
-                        return true
-                    }
-                }
-            }
+      for (let row = 3; row < 6; row++) {
+        for (let col = 0; col <= 3; col++) {
+          const index1 = (row * 7) + col;
+          const index2 = ((row - 1) * 7) + (col + 1);
+          const index3 = ((row - 2) * 7) + (col + 2);
+          const index4 = ((row - 3) * 7) + (col + 3);
+      
+          if (
+            cellElements[index1].classList.contains(curClass) &&
+            cellElements[index2].classList.contains(curClass) &&
+            cellElements[index3].classList.contains(curClass) &&
+            cellElements[index4].classList.contains(curClass)
+          ) {
+            return true;
+          }
         }
-    }
+      }
 
     return false
 }

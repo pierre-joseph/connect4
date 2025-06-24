@@ -70,7 +70,7 @@ function handleHover(e){
 
 function handleHoverOn(e){
     const row = handleHover(e)
-    if (row !== null) {
+    if (row) {
         const col = Number(e.target.id) % 7
         cellElements[(row * 7) + col].classList.add('hover')
     } else {
